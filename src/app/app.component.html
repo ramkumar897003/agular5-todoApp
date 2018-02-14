@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="col-xs-12 col-sm-12 col-md-12 form-group">
+    <div class="text-center">
+      <h1>
+        Welcome to {{ appTitle }}!
+      </h1>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 form-group">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input class="form-control" type="text" placeholder="Enter Title" id="title" [(ngModel)]="title" name="title" />
+      </div>
+    </form>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let todo of todos; let i = index">{{todo}}<a (click)="deleteTodo(i)"><i class="fa fa-times pull-right"></i></a></li>
+      <li class="list-group-item text-center" *ngIf="!todos.length"><b>No todo was found.</b></li>
+    </ul>
+  </div>
+</div>
